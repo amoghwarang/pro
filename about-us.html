@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>About Us - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .page-content {
+            padding: 80px 5%;
+            min-height: calc(100vh - 400px);
+        }
+        
+        .page-title {
+            color: #e50914;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .about-section {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .about-section h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .about-section p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            flex: 1;
+            min-width: 200px;
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #e50914;
+        }
+        
+        .team-member h4 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .team-member p {
+            color: #cccccc;
+            font-size: 0.9rem;
+        }
+        
+        .team-member .position {
+            color: #e50914;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <h1 class="page-title">About Moodie</h1>
+        
+        <div class="about-section">
+            <h3>Our Story</h3>
+            <p>Moodie was founded in 2020 with a simple mission: to bring high-quality entertainment to viewers around the world at an affordable price. What started as a small streaming service with a handful of titles has grown into a global platform with thousands of movies, series, and animated content.</p>
+            <p>Our journey has been driven by innovation, creativity, and a deep understanding of what viewers want. Today, we're proud to serve millions of users across the globe, offering them an unparalleled streaming experience.</p>
+        </div>
+        
+        <div class="about-section">
+            <h3>Our Mission</h3>
+            <p>At Moodie, we're committed to revolutionizing the way people experience entertainment. We believe in:</p>
+            <p><strong>Accessibility:</strong> Making high-quality entertainment available to everyone, anywhere, anytime.</p>
+            <p><strong>Innovation:</strong> Continuously improving our platform with cutting-edge technology.</p>
+            <p><strong>Diversity:</strong> Offering a wide range of content that reflects different cultures, perspectives, and genres.</p>
+            <p><strong>Quality:</strong> Providing an exceptional viewing experience with high-definition content and user-friendly interface.</p>
+        </div>
+        
+        <div class="about-section">
+            <h3>The Team Behind Moodie</h3>
+            <p>Our success is driven by our dedicated team of professionals who are passionate about creating the best streaming experience possible.</p>
+            
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Reynolds">
+                    <h4>John Reynolds</h4>
+                    <p class="position">Founder & CEO</p>
+                    <p>Former Netflix executive with over 15 years of experience in digital entertainment.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                    <h4>Sarah Chen</h4>
+                    <p class="position">Chief Content Officer</p>
+                    <p>Award-winning producer with extensive experience in content acquisition and development.</p>
+                </div>
+                
+                <div class="team-member">
+                    <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Michael Rodriguez">
+                    <h4>Michael Rodriguez</h4>
+                    <p class="position">Chief Technology Officer</p>
+                    <p>Tech innovator with a background in creating scalable streaming solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

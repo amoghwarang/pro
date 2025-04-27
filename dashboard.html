@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodie - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#series">Series</a>
+            <a href="#cartoons">Cartoons</a>
+            <a href="#pricing">Pricing</a>
+        </div>
+        <div class="user-profile">
+            <img src="iloveimg-compressed/pfp.jpg" alt="Profile" class="profile-img">
+            <span class="username">User</span>
+            <button id="logout-btn" class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="welcome-container">
+                <h1>Welcome back, <span id="user-name">User</span>!</h1>
+                <p>Discover new content or continue watching where you left off</p>
+                <div class="header-actions">
+                    <button class="header-btn">Browse All</button>
+                    <button class="header-btn secondary">My Watchlist</button>
+                </div>
+            </div>
+            <div class="featured-content">
+                <img src="iloveimg-compressed/mr.robot.png" alt="Featured: Mr. Robot">
+                <div class="featured-overlay">
+                    <h2>Featured: Mr. Robot</h2>
+                    <p>A cybersecurity engineer and hacker with social anxiety disorder joins a hacktivist group.</p>
+                    <button class="watch-btn">Watch Now</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Continue Watching Section -->
+        <section class="dashboard-section">
+            <h2>Continue Watching</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg" alt="The Shawshank Redemption">
+                    <h3>The Shawshank Redemption</h3>
+                    <div class="rating">⭐ 9.5</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%;"></div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/breaking bad.png" alt="Breaking Bad">
+                    <h3>Breaking Bad</h3>
+                    <div class="rating">⭐ 9.3</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%;"></div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/avatar.png" alt="Avatar: The Last Airbender">
+                    <h3>Avatar: The Last Airbender</h3>
+                    <div class="rating">⭐ 9.0</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 45%;"></div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg" alt="Game of Thrones">
+                    <h3>Game of Thrones</h3>
+                    <div class="rating">⭐ 9.2</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 25%;"></div>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Stranger Things">
+                    <h3>Stranger Things</h3>
+                    <div class="rating">⭐ 9.0</div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Movies Section -->
+        <section class="dashboard-section" id="movies">
+            <h2>Top Movies</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" alt="Inception">
+                    <h3>Inception</h3>
+                    <div class="rating">⭐ 9.8</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" alt="The Dark Knight">
+                    <h3>The Dark Knight</h3>
+                    <div class="rating">⭐ 9.3</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Interstellar">
+                    <h3>Interstellar</h3>
+                    <div class="rating">⭐ 9.6</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/the godfather.png" alt="The Godfather">
+                    <h3>The Godfather</h3>
+                    <div class="rating">⭐ 9.2</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/lord of the rings.png" alt="The Lord of the Rings">
+                    <h3>The Lord of the Rings</h3>
+                    <div class="rating">⭐ 9.0</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Series Section -->
+        <section class="dashboard-section" id="series">
+            <h2>Popular Series</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="iloveimg-compressed/breaking bad.png" alt="Breaking Bad">
+                    <h3>Breaking Bad</h3>
+                    <div class="rating">⭐ 9.3</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg" alt="Game of Thrones">
+                    <h3>Game of Thrones</h3>
+                    <div class="rating">⭐ 9.2</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Stranger Things">
+                    <h3>Stranger Things</h3>
+                    <div class="rating">⭐ 9.0</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BODk4ZjU0NDUtYjdlOS00OTljLTgwZTUtYjkyZjk1NzExZGIzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg" alt="Succession">
+                    <h3>Vikings</h3>
+                    <div class="rating">⭐ 9.4</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTkzNjEzMDEzMF5BMl5BanBnXkFtZTgwMDI0MjE4MjE@._V1_.jpg" alt="True Detective">
+                    <h3>Pleaky Blinders</h3>
+                    <div class="rating">⭐ 9.1</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cartoons Section -->
+        <section class="dashboard-section" id="cartoons">
+            <h2>Animated Favorites</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="iloveimg-compressed/avatar.png" alt="Avatar: The Last Airbender">
+                    <h3>Avatar: The Last Airbender</h3>
+                    <div class="rating">⭐ 9.0</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/rick and morty.png" alt="Rick and Morty">
+                    <h3>Rick and Morty</h3>
+                    <div class="rating">⭐ 8.9</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/fullmetal alchemist.png" alt="Fullmetal Alchemist: Brotherhood">
+                    <h3>Fullmetal Alchemist</h3>
+                    <div class="rating">⭐ 9.1</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjNmZDhkN2QtNDYyZC00YzJmLTg0ODUtN2FjNjhhMzE3ZmUxXkEyXkFqcGdeQXVyNjc2NjA5MTU@._V1_.jpg" alt="Death Note">
+                    <h3>Death Note</h3>
+                    <div class="rating">⭐ 9.0</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/arcane.png" alt="Arcane">
+                    <h3>Arcane</h3>
+                    <div class="rating">⭐ 9.3</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Releases Section -->
+        <section class="dashboard-section">
+            <h2>New Releases</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="iloveimg-compressed/dunepart2.jpeg" alt="Dune: Part Two">
+                    <h3>Dune: Part Two</h3>
+                    <div class="rating">⭐ 8.8</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/fall guy.png" alt="The Fall Guy">
+                    <h3>The Fall Guy</h3>
+                    <div class="rating">⭐ 7.9</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/house of dragons.png" alt="House of the Dragon">
+                    <h3>House of the Dragon S2</h3>
+                    <div class="rating">⭐ 8.8</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/only murders inthe building.png" alt="Only Murders in the Building">
+                    <h3>Only Murders S4</h3>
+                    <div class="rating">⭐ 8.4</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/demon-slayer.jpg" alt="Demon Slayer">
+                    <h3>Demon Slayer S4</h3>
+                    <div class="rating">⭐ 8.7</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- My List Section -->
+        <section class="dashboard-section">
+            <h2>My List</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_.jpg" alt="Inception">
+                    <h3>Inception</h3>
+                    <div class="rating">⭐ 9.8</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYTRiNDQwYzAtMzVlZS00NTI5LWJjYjUtMzkwNTUzMWMxZTllXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_.jpg" alt="Game of Thrones">
+                    <h3>Game of Thrones</h3>
+                    <div class="rating">⭐ 9.2</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/rick and morty.png" alt="Rick and Morty">
+                    <h3>Rick and Morty</h3>
+                    <div class="rating">⭐ 8.9</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_.jpg" alt="The Shawshank Redemption">
+                    <h3>The Shawshank Redemption</h3>
+                    <div class="rating">⭐ 9.5</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtMjc2YWMzMDEwMTA3XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Squid Game">
+                    <h3>Squid Game</h3>
+                    <div class="rating">⭐ 8.7</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Section -->
+        <section class="dashboard-section">
+            <h2>Recommended for You</h2>
+            <div class="content-slider">
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg" alt="The Dark Knight">
+                    <h3>The Dark Knight</h3>
+                    <div class="rating">⭐ 9.3</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="Stranger Things">
+                    <h3>Stranger Things</h3>
+                    <div class="rating">⭐ 9.0</div>
+                </div>
+                <div class="content-card">
+                    <img src="https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg" alt="Interstellar">
+                    <h3>Interstellar</h3>
+                    <div class="rating">⭐ 9.6</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/1917.png" alt="1917">
+                    <h3>1917</h3>
+                    <div class="rating">⭐ 8.9</div>
+                </div>
+                <div class="content-card">
+                    <img src="iloveimg-compressed/mrrobotslim.jpg" alt="Mr. Robot">
+                    <h3>Mr. Robot</h3>
+                    <div class="rating">⭐ 8.6</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section (Hidden by default) -->
+        <section id="profile-section" class="dashboard-section" style="display: none;">
+            <div class="profile-card">
+                <h2>Your Profile</h2>
+                <div class="profile-info">
+                    <p><strong>Name:</strong> <span id="profile-name">User</span></p>
+                    <p><strong>Email:</strong> <span id="profile-email">user@example.com</span></p>
+                    <p><strong>Member Since:</strong> <span id="member-since">January 2024</span></p>
+                </div>
+                <div class="profile-actions">
+                    <button class="edit-profile-btn">Edit Profile</button>
+                    <button class="change-password-btn">Change Password</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <div class="payment-header">
+                <h2>Complete Your Purchase</h2>
+                <button class="close-payment" id="closePaymentBtn">&times;</button>
+            </div>
+            <div class="payment-body">
+                <div class="movie-details">
+                    <img src="" alt="Movie Thumbnail" class="movie-thumbnail" id="movieThumbnail">
+                    <div class="movie-info">
+                        <h3 id="movieTitle">Movie Title</h3>
+                        <div class="movie-price">$<span id="moviePrice">0.00</span></div>
+                    </div>
+                </div>
+                <form class="payment-form" id="paymentForm">
+                    <div class="form-group">
+                        <label for="cardName">Name on Card</label>
+                        <input type="text" id="cardName" placeholder="e.g. John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="XXX" maxlength="3" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-payment-btn">Confirm Payment</button>
+                    <div class="secure-badge">
+                        <i class="fas fa-lock"></i> Secure payment processing
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html> 

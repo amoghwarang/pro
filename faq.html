@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .page-content {
+            padding: 80px 5%;
+            min-height: calc(100vh - 400px);
+        }
+        
+        .page-title {
+            color: #e50914;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-btn {
+            background-color: rgba(40, 40, 40, 0.7);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: #e50914;
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+        }
+        
+        .faq-section h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid rgba(229, 9, 20, 0.3);
+            padding-bottom: 10px;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px 0;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .faq-question:hover {
+            color: #e50914;
+        }
+        
+        .faq-question .icon {
+            color: #e50914;
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-top: 15px;
+            display: none;
+            padding: 0 10px;
+            font-size: 1.05rem;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-answer a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+        
+        .search-container {
+            margin-bottom: 30px;
+            display: flex;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            background-color: #1a1a1a;
+            border: none;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+            width: 100%;
+        }
+        
+        .search-input:focus {
+            background-color: #222;
+        }
+        
+        .search-button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            min-width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search-button:hover {
+            background-color: #f40612;
+        }
+        
+        .not-found-message {
+            display: none;
+            text-align: center;
+            color: #cccccc;
+            margin: 40px 0;
+            font-size: 1.1rem;
+        }
+        
+        .contact-support {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+        }
+        
+        .contact-support h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-support p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background-color: #e50914;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .support-btn:hover {
+            background-color: #f40612;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <h1 class="page-title">Frequently Asked Questions</h1>
+        
+        <div class="faq-container">
+            <div class="search-container">
+                <input type="text" id="faq-search" class="search-input" placeholder="Search for questions...">
+                <button class="search-button" id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="faq-categories">
+                <button class="category-btn active" data-category="all">All</button>
+                <button class="category-btn" data-category="account">Account</button>
+                <button class="category-btn" data-category="subscription">Subscription</button>
+                <button class="category-btn" data-category="viewing">Viewing</button>
+                <button class="category-btn" data-category="technical">Technical</button>
+                <button class="category-btn" data-category="billing">Billing</button>
+            </div>
+            
+            <div class="not-found-message" id="no-results">
+                <p>No questions match your search. Please try different keywords or <a href="contact-us.html" style="color: #e50914; text-decoration: none;">contact our support team</a>.</p>
+            </div>
+            
+            <div class="faq-section" data-category="account">
+                <h3>Account & Profile</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I create a Moodie account?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Creating a Moodie account is easy! Visit our <a href="signup.html">Sign Up</a> page and follow these steps:</p>
+                        <ol>
+                            <li>Enter your email address and create a password</li>
+                            <li>Select your preferred subscription plan</li>
+                            <li>Enter your payment information</li>
+                            <li>Start enjoying unlimited movies and TV shows!</li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I reset my password?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you've forgotten your password, you can reset it by following these steps:</p>
+                        <ol>
+                            <li>Go to the <a href="login.html">Login page</a></li>
+                            <li>Click on "Forgot Password"</li>
+                            <li>Enter the email address associated with your account</li>
+                            <li>Check your email for password reset instructions</li>
+                            <li>Follow the link in the email to create a new password</li>
+                        </ol>
+                        <p>For security reasons, password reset links expire after 24 hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How many profiles can I create per account?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The number of profiles you can create depends on your subscription plan:</p>
+                        <ul>
+                            <li><strong>Basic Plan:</strong> Up to 1 profile</li>
+                            <li><strong>Premium Plan:</strong> Up to 2 profiles</li>
+                            <li><strong>Ultimate Plan:</strong> Up to 4 profiles</li>
+                        </ul>
+                        <p>Each profile allows for personalized recommendations and viewing history, making it easy for everyone in your household to have their own Moodie experience.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my email address?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can change the email address associated with your Moodie account. To update your email:</p>
+                        <ol>
+                            <li>Log in to your Moodie account</li>
+                            <li>Go to "Account Settings"</li>
+                            <li>Click on "Edit" next to your email address</li>
+                            <li>Enter your new email address and password to confirm</li>
+                            <li>Click "Save Changes"</li>
+                        </ol>
+                        <p>You'll receive a confirmation email at your new address. You'll need to click the verification link in that email to complete the change.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section" data-category="subscription">
+                <h3>Subscription & Plans</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What subscription plans does Moodie offer?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Moodie offers three subscription plans to meet different needs:</p>
+                        <ul>
+                            <li><strong>Basic Plan ($9.99/month):</strong> HD streaming on 1 device, unlimited movies and TV shows</li>
+                            <li><strong>Premium Plan ($14.99/month):</strong> Ultra HD streaming on 2 devices, unlimited movies and TV shows</li>
+                            <li><strong>Ultimate Plan ($19.99/month):</strong> 4K + HDR streaming on 4 devices, unlimited movies and TV shows</li>
+                        </ul>
+                        <p>All plans allow you to watch on your laptop, TV, phone, or tablet, and you can cancel anytime. Visit our <a href="index.html#pricing">Pricing</a> page for more details.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I change my subscription plan?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can easily upgrade or downgrade your Moodie subscription plan at any time. To change your plan:</p>
+                        <ol>
+                            <li>Log in to your Moodie account</li>
+                            <li>Go to "Account Settings"</li>
+                            <li>Select "Subscription Plan"</li>
+                            <li>Choose "Change Plan"</li>
+                            <li>Select your new plan and confirm the change</li>
+                        </ol>
+                        <p>If you upgrade, the change will take effect immediately. If you downgrade, the change will take effect at the start of your next billing cycle.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I cancel my subscription?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're sorry to see you go! You can cancel your Moodie subscription at any time by following these steps:</p>
+                        <ol>
+                            <li>Log in to your Moodie account</li>
+                            <li>Go to "Account Settings"</li>
+                            <li>Select "Subscription Plan"</li>
+                            <li>Click "Cancel Subscription"</li>
+                            <li>Follow the prompts to confirm cancellation</li>
+                        </ol>
+                        <p>Your subscription will remain active until the end of your current billing period. You will not be charged again unless you reactivate your subscription.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer a free trial?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, Moodie offers a 7-day free trial for new subscribers. During the trial period, you'll have full access to all features of your selected plan.</p>
+                        <p>To sign up for a free trial:</p>
+                        <ol>
+                            <li>Go to our <a href="signup.html">Sign Up</a> page</li>
+                            <li>Select your preferred plan</li>
+                            <li>Create your account</li>
+                            <li>Enter your payment information (you won't be charged until the trial ends)</li>
+                        </ol>
+                        <p>You can cancel at any time during the trial period and you won't be charged. If you continue after the trial period, your subscription will automatically begin and you'll be billed according to your selected plan.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section" data-category="viewing">
+                <h3>Viewing & Content</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I find specific movies or shows?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>There are several ways to find content on Moodie:</p>
+                        <ul>
+                            <li><strong>Search:</strong> Use the search bar at the top of the screen to search for titles, actors, directors, or genres</li>
+                            <li><strong>Browse:</strong> Explore our categories like Movies, Series, or Cartoons</li>
+                            <li><strong>Recommendations:</strong> Check your personalized recommendations on the home page</li>
+                            <li><strong>New Releases:</strong> View our "Recently Added" section for the latest content</li>
+                        </ul>
+                        <p>You can also use filters to narrow down your search by genre, release year, or rating.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I download content to watch offline?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all Moodie subscription plans allow you to download content for offline viewing on our mobile apps for iOS and Android devices.</p>
+                        <p>To download content:</p>
+                        <ol>
+                            <li>Open the Moodie app on your mobile device</li>
+                            <li>Find the movie or episode you want to download</li>
+                            <li>Tap the download icon</li>
+                        </ol>
+                        <p>Downloaded content is available for 7 days or until 48 hours after you start watching. The number of downloads allowed varies by subscription plan:</p>
+                        <ul>
+                            <li><strong>Basic Plan:</strong> Up to 5 downloads</li>
+                            <li><strong>Premium Plan:</strong> Up to 10 downloads</li>
+                            <li><strong>Ultimate Plan:</strong> Up to 20 downloads</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What devices can I watch Moodie on?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Moodie is compatible with a wide range of devices, including:</p>
+                        <ul>
+                            <li>Smart TVs (Samsung, LG, Sony, etc.)</li>
+                            <li>Streaming devices (Roku, Amazon Fire TV, Apple TV, Chromecast)</li>
+                            <li>Game consoles (PlayStation, Xbox)</li>
+                            <li>Mobile devices (iOS and Android phones and tablets)</li>
+                            <li>Computers (via web browsers)</li>
+                        </ul>
+                        <p>To start watching, simply download the Moodie app on your device or visit Moodie.com in your web browser.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How often is new content added?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We add new movies, series, and cartoons to our library every week. Our content team is constantly working to bring you the latest releases and classic favorites.</p>
+                        <p>To stay updated on new additions:</p>
+                        <ul>
+                            <li>Check the "Recently Added" section on the home page</li>
+                            <li>Follow us on social media for announcements</li>
+                            <li>Enable notifications in your account settings to receive alerts about new content</li>
+                        </ul>
+                        <p>We also feature special collections around holidays and major events.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section" data-category="technical">
+                <h3>Technical Issues</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What can I do if videos won't play or keep buffering?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you're experiencing playback issues, try these troubleshooting steps:</p>
+                        <ol>
+                            <li>Check your internet connection speed (we recommend at least 3 Mbps for SD, 5 Mbps for HD, and 15 Mbps for 4K)</li>
+                            <li>Restart your device and router</li>
+                            <li>Close other applications or browser tabs that might be using bandwidth</li>
+                            <li>Lower the video quality in the player settings</li>
+                            <li>Clear your browser cache or app data</li>
+                            <li>Try a different device or browser</li>
+                        </ol>
+                        <p>If problems persist, please <a href="contact-us.html">contact our support team</a> with details about your device, internet connection, and the specific content you're trying to watch.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I fix audio/video sync issues?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>If you're experiencing audio and video that are out of sync, try these solutions:</p>
+                        <ol>
+                            <li>Pause the video for 10-15 seconds and then resume playback</li>
+                            <li>Refresh the page or restart the app</li>
+                            <li>Check if your device's operating system and the Moodie app are up to date</li>
+                            <li>Try lowering the video quality</li>
+                            <li>If using a browser, try a different one</li>
+                            <li>Check your audio settings and make sure there's no delay enabled</li>
+                        </ol>
+                        <p>If the issue persists across multiple titles, please contact our support team for assistance.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why can't I see content in 4K/HDR?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To stream content in 4K/HDR, you need:</p>
+                        <ol>
+                            <li>An Ultimate subscription plan (our Basic and Premium plans don't support 4K)</li>
+                            <li>A 4K/HDR compatible device</li>
+                            <li>A strong internet connection (at least 15 Mbps)</li>
+                            <li>Content that is available in 4K/HDR (look for the 4K or HDR badge)</li>
+                        </ol>
+                        <p>Additionally, make sure:</p>
+                        <ul>
+                            <li>Your display is 4K/HDR compatible</li>
+                            <li>You're using an HDMI cable that supports HDCP 2.2 (for external devices)</li>
+                            <li>Your streaming quality is set to "High" in your account settings</li>
+                        </ul>
+                        <p>Note that not all content is available in 4K/HDR, even with an Ultimate subscription.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I update the Moodie app?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To ensure the best streaming experience, it's important to keep your Moodie app updated. Here's how to update on different devices:</p>
+                        <ul>
+                            <li><strong>iOS devices:</strong> Open the App Store, tap on your profile picture, scroll down to see available updates, and tap "Update" next to the Moodie app</li>
+                            <li><strong>Android devices:</strong> Open the Google Play Store, tap on your profile icon, select "Manage apps & device," and update Moodie if available</li>
+                            <li><strong>Smart TVs:</strong> Most Smart TVs update apps automatically. You can also check for updates in your TV's app store</li>
+                            <li><strong>Streaming devices:</strong> Follow the device-specific instructions for Roku, Apple TV, Fire TV, etc.</li>
+                        </ul>
+                        <p>For web browsers, Moodie automatically uses the latest version when you refresh the page.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section" data-category="billing">
+                <h3>Billing & Payment</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What payment methods do you accept?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Moodie accepts the following payment methods:</p>
+                        <ul>
+                            <li>Credit cards (Visa, Mastercard, American Express, Discover)</li>
+                            <li>Debit cards (with Visa or Mastercard logo)</li>
+                            <li>PayPal</li>
+                            <li>Gift cards and promotional codes</li>
+                            <li>Select mobile carrier billing (depending on your location)</li>
+                        </ul>
+                        <p>Payment methods may vary by location. You can view and update your payment method in your account settings at any time.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>When will I be charged for my subscription?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your Moodie subscription is charged at the beginning of each billing cycle. For new subscribers who sign up for the 7-day free trial, the first charge occurs when the trial period ends.</p>
+                        <p>For monthly subscriptions, you'll be charged on the same date each month. If you subscribed on the 31st of a month, and a subsequent month has fewer days, you'll be charged on the last day of that month.</p>
+                        <p>You can find your next billing date in your account settings under "Subscription and Billing."</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I update my payment information?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>To update your payment information:</p>
+                        <ol>
+                            <li>Log in to your Moodie account</li>
+                            <li>Go to "Account Settings"</li>
+                            <li>Select "Subscription and Billing"</li>
+                            <li>Click "Update Payment Method"</li>
+                            <li>Enter your new payment details and save changes</li>
+                        </ol>
+                        <p>Your updated payment method will be used for your next billing cycle. If your current payment method has expired or been declined, updating your information will trigger an immediate charge to reactivate your subscription.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I get a refund if I'm not satisfied with the service?</span>
+                        <i class="fas fa-chevron-down icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Moodie subscriptions are prepaid and non-refundable for partial billing periods. However, we evaluate refund requests on a case-by-case basis for issues such as:</p>
+                        <ul>
+                            <li>Technical problems that significantly impacted your ability to use the service</li>
+                            <li>Accidental or duplicate charges</li>
+                            <li>Free trial billing errors</li>
+                        </ul>
+                        <p>If you believe you're entitled to a refund, please <a href="contact-us.html">contact our support team</a> with your account details and the reason for your request. We aim to resolve all issues fairly and promptly.</p>
+                        <p>Remember that you can cancel your subscription at any time, and you'll still have access to Moodie until the end of your current billing period.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-support">
+                <h3>Still Need Help?</h3>
+                <p>Can't find the answer you're looking for? Our dedicated support team is ready to assist you with any questions or issues.</p>
+                <a href="support.html" class="support-btn">Contact Support</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Toggle FAQ answers
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.icon');
+                
+                // Toggle this answer
+                answer.classList.toggle('active');
+                
+                // Toggle icon rotation
+                if (answer.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0)';
+                }
+            });
+        });
+        
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active button
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show/hide sections based on category
+                if (category === 'all') {
+                    document.querySelectorAll('.faq-section').forEach(section => {
+                        section.style.display = 'block';
+                    });
+                } else {
+                    document.querySelectorAll('.faq-section').forEach(section => {
+                        if (section.getAttribute('data-category') === category) {
+                            section.style.display = 'block';
+                        } else {
+                            section.style.display = 'none';
+                        }
+                    });
+                }
+                
+                // Reset search
+                document.getElementById('faq-search').value = '';
+                document.getElementById('no-results').style.display = 'none';
+            });
+        });
+        
+        // Search functionality
+        document.getElementById('search-btn').addEventListener('click', searchFAQs);
+        document.getElementById('faq-search').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchFAQs();
+            }
+        });
+        
+        function searchFAQs() {
+            const searchTerm = document.getElementById('faq-search').value.toLowerCase();
+            let resultsFound = false;
+            
+            if (searchTerm.trim() === '') {
+                // Reset if search is empty
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.style.display = 'block';
+                });
+                document.getElementById('no-results').style.display = 'none';
+                return;
+            }
+            
+            // Reset category buttons
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector('.category-btn[data-category="all"]').classList.add('active');
+            
+            // Show all sections
+            document.querySelectorAll('.faq-section').forEach(section => {
+                section.style.display = 'block';
+            });
+            
+            // Filter questions
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    resultsFound = true;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show message if no results
+            if (!resultsFound) {
+                document.getElementById('no-results').style.display = 'block';
+            } else {
+                document.getElementById('no-results').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html> 

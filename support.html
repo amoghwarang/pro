@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>Support - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .page-content {
+            padding: 80px 5%;
+            min-height: calc(100vh - 400px);
+        }
+        
+        .page-title {
+            color: #e50914;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .support-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .support-intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .support-intro p {
+            color: #cccccc;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .support-search {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .support-search input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 4px 0 0 4px;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        
+        .support-search button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        .support-search button:hover {
+            background-color: #f40612;
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .support-card {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .support-card-icon {
+            font-size: 3rem;
+            color: #e50914;
+            margin-bottom: 20px;
+        }
+        
+        .support-card h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .support-card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .support-btn {
+            display: inline-block;
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #e50914;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .support-btn:hover {
+            background-color: rgba(229, 9, 20, 0.2);
+        }
+        
+        .quick-help {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .quick-help h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .quick-link {
+            background-color: rgba(40, 40, 40, 0.7);
+            padding: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .quick-link:hover {
+            background-color: rgba(60, 60, 60, 0.7);
+        }
+        
+        .quick-link i {
+            color: #e50914;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            min-width: 25px;
+            text-align: center;
+        }
+        
+        .ticket-section {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .ticket-section h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .ticket-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            color: #ffffff;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            background-color: rgba(40, 40, 40, 0.7);
+            border: 1px solid #444;
+            color: #ffffff;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #f40612;
+        }
+        
+        .contact-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .contact-info h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-method {
+            text-align: center;
+        }
+        
+        .contact-icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(40, 40, 40, 0.7);
+            color: #e50914;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-method h4 {
+            color: #ffffff;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .contact-method p {
+            color: #cccccc;
+            font-size: 1rem;
+        }
+        
+        .contact-method a {
+            color: #e50914;
+            text-decoration: none;
+        }
+        
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <h1 class="page-title">Moodie Support</h1>
+        
+        <div class="support-container">
+            <div class="support-intro">
+                <p>We're here to help you with any questions or issues you may have with Moodie. Find answers quickly through our self-service options or get in touch with our support team.</p>
+                
+                <div class="support-search">
+                    <input type="text" placeholder="Search for help topics..." id="support-search-input">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+            <div class="support-options">
+                <div class="support-card">
+                    <div class="support-card-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Frequently Asked Questions</h3>
+                    <p>Find answers to common questions about accounts, billing, streaming, and more in our comprehensive FAQ section.</p>
+                    <a href="faq.html" class="support-btn">View FAQs</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-card-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Troubleshooting</h3>
+                    <p>Experience streaming issues? Find step-by-step solutions to common technical problems and get back to watching.</p>
+                    <a href="#troubleshooting" class="support-btn">Fix Issues</a>
+                </div>
+                
+                <div class="support-card">
+                    <div class="support-card-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Contact Support</h3>
+                    <p>Need personalized help? Our support team is available 24/7 to assist you with any questions or concerns.</p>
+                    <a href="#contact-form" class="support-btn">Contact Us</a>
+                </div>
+            </div>
+            
+            <div class="quick-help">
+                <h3>Quick Help Topics</h3>
+                <div class="quick-links">
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>Reset Password</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Update Payment Method</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Change Subscription Plan</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-ban"></i>
+                        <span>Cancel Subscription</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-desktop"></i>
+                        <span>Fix Streaming Issues</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-download"></i>
+                        <span>Download Content</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Manage Profiles</span>
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Device Compatibility</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="ticket-section" id="contact-form">
+                <h3>Submit a Support Ticket</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">Can't find what you're looking for? Fill out the form below and our support team will get back to you as soon as possible.</p>
+                
+                <form class="ticket-form" id="supportForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="issue-type">Type of Issue</label>
+                        <select id="issue-type" name="issueType" required>
+                            <option value="" disabled selected>Select an issue type</option>
+                            <option value="account">Account Access</option>
+                            <option value="billing">Billing & Payments</option>
+                            <option value="streaming">Streaming & Playback</option>
+                            <option value="content">Content & Features</option>
+                            <option value="technical">Technical Issues</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="device">Device Type</label>
+                        <select id="device" name="device">
+                            <option value="" disabled selected>Select your device</option>
+                            <option value="computer">Computer/Laptop</option>
+                            <option value="smartphone">Smartphone</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="smart-tv">Smart TV</option>
+                            <option value="streaming-device">Streaming Device (Roku, Fire TV, etc.)</option>
+                            <option value="game-console">Game Console</option>
+                            <option value="other">Other</option>
+                            <option value="not-applicable">Not Applicable</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Describe Your Issue</label>
+                        <textarea id="description" name="description" required placeholder="Please provide as much detail as possible about the issue you're experiencing."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Ticket</button>
+                </form>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Other Ways to Reach Us</h3>
+                <p style="color: #cccccc; margin-bottom: 30px;">Our support team is available 24/7 to assist you with any questions or concerns.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h4>Phone Support</h4>
+                        <p>+1 (800) 123-4567</p>
+                        <p>24/7 Customer Support</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email Support</h4>
+                        <p><a href="mailto:support@moodie.com">support@moodie.com</a></p>
+                        <p>Response within 24 hours</p>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Live Chat</h4>
+                        <p><a href="#">Start a Live Chat</a></p>
+                        <p>Available 8AM - 12AM EST</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Search functionality
+        document.querySelector('.support-search button').addEventListener('click', function() {
+            const searchTerm = document.getElementById('support-search-input').value.trim().toLowerCase();
+            if (searchTerm) {
+                window.location.href = `faq.html?search=${encodeURIComponent(searchTerm)}`;
+            }
+        });
+        
+        document.getElementById('support-search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value.trim().toLowerCase();
+                if (searchTerm) {
+                    window.location.href = `faq.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+            }
+        });
+        
+        // Quick link functionality
+        document.querySelectorAll('.quick-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('This would navigate to a specific help article in a complete implementation.');
+            });
+        });
+        
+        // Support ticket form
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                fullname: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                issueType: document.getElementById('issue-type').value,
+                device: document.getElementById('device').value,
+                description: document.getElementById('description').value
+            };
+            
+            // Disable submit button and show loading state
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            // Get auth token if available
+            const authToken = localStorage.getItem('authToken');
+            const headers = {
+                'Content-Type': 'application/json'
+            };
+            
+            if (authToken) {
+                headers['Authorization'] = `Bearer ${authToken}`;
+            }
+            
+            // Submit form data to backend
+            fetch('/api/support-ticket', {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    alert(`${data.message}\nYour ticket number is: ${data.ticketNumber}`);
+                    this.reset();
+                } else {
+                    // Show error message
+                    alert(`Error: ${data.message}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting support ticket:', error);
+                alert('Failed to submit your ticket. Please try again or contact us directly.');
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+            });
+        });
+        
+        // Live chat functionality
+        document.querySelector('.contact-method a[href="#"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This would launch a live chat window in a complete implementation.');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>Subscription Successful - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="subscribe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+    </nav>
+
+    <!-- Success Message -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="success-container">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h2 class="success-title">Subscription Complete!</h2>
+                <p class="success-message">Thank you for subscribing to Moodie. Your account has been activated and you can start watching immediately.</p>
+                
+                <div class="success-details">
+                    <h4>Subscription Details</h4>
+                    <div class="detail-item">
+                        <span class="label">Plan:</span>
+                        <span id="plan-name">Premium</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Price:</span>
+                        <span>$<span id="plan-price">14.99</span>/month</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Billing Cycle:</span>
+                        <span>Monthly</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="label">Next Billing Date:</span>
+                        <span id="next-billing-date">May 9, 2024</span>
+                    </div>
+                </div>
+                
+                <p>A confirmation email has been sent to your email address with all the details of your subscription.</p>
+                
+                <a href="index.html" class="start-watching-btn">Start Watching Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const params = new URLSearchParams(window.location.search);
+            const planId = params.get('plan') || '2'; // Default to Premium (2) if not specified
+            
+            // Set plan details based on plan ID
+            let planName, planPrice;
+            
+            switch (planId) {
+                case '1':
+                    planName = 'Basic';
+                    planPrice = '9.99';
+                    break;
+                case '2':
+                    planName = 'Premium';
+                    planPrice = '14.99';
+                    break;
+                case '3':
+                    planName = 'Ultimate';
+                    planPrice = '19.99';
+                    break;
+                default:
+                    planName = 'Premium';
+                    planPrice = '14.99';
+            }
+            
+            // Update displayed plan details
+            document.getElementById('plan-name').textContent = planName;
+            document.getElementById('plan-price').textContent = planPrice;
+            
+            // Calculate next billing date (30 days from now)
+            const nextBillingDate = new Date();
+            nextBillingDate.setDate(nextBillingDate.getDate() + 30);
+            
+            // Format date as Month DD, YYYY
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('next-billing-date').textContent = nextBillingDate.toLocaleDateString('en-US', options);
+        });
+    </script>
+</body>
+</html> 

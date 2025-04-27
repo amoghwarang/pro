@@ -1,0 +1,124 @@
+/* Subscription Page Specific Styles */
+.plan-details {
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+}
+
+.plan-details h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+
+.plan-details #plan-name {
+    color: #e50914;
+    font-weight: bold;
+}
+
+.plan-price {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.plan-price span {
+    color: #e50914;
+}
+
+.plan-features {
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.plan-features p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Form row for card details */
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group.half {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* Credit card input formatting */
+#card_number {
+    letter-spacing: 1px;
+}
+
+/* Success page styling */
+.success-container {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #00c853;
+    margin-bottom: 1.5rem;
+}
+
+.success-title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.success-message {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #cccccc;
+}
+
+.success-details {
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.success-details h4 {
+    color: #e50914;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.7rem;
+    color: #cccccc;
+}
+
+.detail-item .label {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.start-watching-btn {
+    display: inline-block;
+    background-color: #e50914;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.start-watching-btn:hover {
+    background-color: #f40612;
+} 

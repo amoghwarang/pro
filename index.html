@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>Moodie - Your Ultimate Streaming Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#movies">Movies</a>
+            <a href="#series">Series</a>
+            <a href="#cartoons">Cartoons</a>
+            <a href="#pricing">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn">Login</button>
+            <button class="signup-btn">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-container">
+        <div class="hero-arrow hero-arrow-left"><i class="fas fa-chevron-left"></i></div>
+        <div class="hero-slider">
+            <div class="hero-slide" data-index="0">
+                <section class="hero">
+                    <div class="hero-background" style="background-image: url('iloveimg-compressed/transformer-banner.jpg');"></div>
+                    <div class="hero-overlay">
+                        <div class="hero-content">
+                            <div class="featured-badge">FEATURED</div>
+                            <h1>Transformers: Rise of the Beasts</h1>
+                            <p class="release-date">Released: June 2023</p>
+                            <div class="meta-info">
+                                <span><i class="fas fa-star"></i> 9.5 Rating</span>
+                                <span><i class="fas fa-clock"></i> 127 min</span>
+                                <span><i class="fas fa-film"></i> Action/Sci-Fi</span>
+                            </div>
+                            <p>The Transformers join forces with a human archaeologist and an ancient race of Transformers known as the Maximals to confront a world-ending threat.</p>
+                            <div class="hero-cta">
+                                <button class="cta-btn primary watch-trailer" data-trailer="https://www.youtube.com/embed/itnqEauWQZM"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                                <button class="cta-btn secondary"><i class="fas fa-plus"></i> Add to List</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="hero-slide" data-index="1">
+                <section class="hero">
+                    <div class="hero-background" style="background-image: url('iloveimg-compressed/end-game.jpg');"></div>
+                    <div class="hero-overlay">
+                        <div class="hero-content">
+                            <div class="featured-badge">BLOCKBUSTER</div>
+                            <h1>Avengers: Endgame</h1>
+                            <p class="release-date">Released: April 2019</p>
+                            <div class="meta-info">
+                                <span><i class="fas fa-star"></i> 9.7 Rating</span>
+                                <span><i class="fas fa-clock"></i> 181 min</span>
+                                <span><i class="fas fa-film"></i> Action/Sci-Fi</span>
+                            </div>
+                            <p>After the devastating events of Infinity War, the universe is in ruins. With the help of remaining allies, the Avengers assemble once more to reverse Thanos' actions and restore balance.</p>
+                            <div class="hero-cta">
+                                <button class="cta-btn primary watch-trailer" data-trailer="https://www.youtube.com/embed/TcMBFSGVi1c"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                                <button class="cta-btn secondary"><i class="fas fa-plus"></i> Add to List</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="hero-slide" data-index="2">
+                <section class="hero">
+                    <div class="hero-background" style="background-image: url('iloveimg-compressed/John wick.jpg');"></div>
+                    <div class="hero-overlay">
+                        <div class="hero-content">
+                            <div class="featured-badge">TRENDING</div>
+                            <h1>John Wick: Chapter 4</h1>
+                            <p class="release-date">Released: March 2023</p>
+                            <div class="meta-info">
+                                <span><i class="fas fa-star"></i> 9.8 Rating</span>
+                                <span><i class="fas fa-clock"></i> 169 min</span>
+                                <span><i class="fas fa-film"></i> Action/Thriller</span>
+                            </div>
+                            <p>John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, he must face off against a new enemy with powerful alliances across the globe.</p>
+                            <div class="hero-cta">
+                                <button class="cta-btn primary watch-trailer" data-trailer="https://www.youtube.com/embed/qEVUtrk8_B4"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                                <button class="cta-btn secondary"><i class="fas fa-plus"></i> Add to List</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <div class="hero-arrow hero-arrow-right"><i class="fas fa-chevron-right"></i></div>
+        <div class="hero-dots">
+            <span class="hero-dot active" data-index="0"></span>
+            <span class="hero-dot" data-index="1"></span>
+            <span class="hero-dot" data-index="2"></span>
+        </div>
+    </section>
+
+    <!-- Mood Selector -->
+    <section class="mood-selector-container">
+        <h2 class="mood-selector-title">What are you in the mood for today?</h2>
+        <div class="mood-selector" id="moodSelector">
+            <!-- Mood buttons will be added dynamically through JavaScript -->
+        </div>
+        <button class="mood-reset-btn" id="resetMoodBtn" style="display: none;">Clear Selection</button>
+    </section>
+
+    <!-- Top Rated Movies -->
+    <section class="content-section" id="movies">
+        <h2>Top Rated Movies</h2>
+        <div class="slider-container">
+            <div class="slider-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+            <div class="content-slider">
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/mqqft2x_Aa4">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$9.99</div>
+                            <img src="iloveimg-compressed/batman.jpg" alt="The Batman">
+                            <div class="title-container">
+                                <h3>The Batman</h3>
+                                <div class="rating">⭐ 9.5</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>The Batman</h3>
+                            <p>When the Riddler, a sadistic serial killer, begins murdering key political figures in Gotham, Batman is forced to investigate the city's hidden corruption.</p>
+                            <div class="meta">
+                                <span>2022</span>
+                                <span>Action, Crime</span>
+                                <span>176 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/mqqft2x_Aa4"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/JfVOs4VSpmA">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$9.99</div>
+                            <img src="iloveimg-compressed/spiderman.jpg" alt="Spider-Man: No Way Home">
+                            <div class="title-container">
+                                <h3>Spider-Man: No Way Home</h3>
+                                <div class="rating">⭐ 9.4</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Spider-Man: No Way Home</h3>
+                            <p>With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear.</p>
+                            <div class="meta">
+                                <span>2021</span>
+                                <span>Action, Adventure</span>
+                                <span>148 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/JfVOs4VSpmA"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/giXco2jaZ_4">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$12.99</div>
+                            <img src="iloveimg-compressed/maverick.webp" alt="Top Gun: Maverick">
+                            <div class="title-container">
+                                <h3>Top Gun: Maverick</h3>
+                                <div class="rating">⭐ 9.3</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Top Gun: Maverick</h3>
+                            <p>After more than thirty years of service as a top naval aviator, Pete Mitchell is where he belongs, pushing the envelope as a courageous test pilot.</p>
+                            <div class="meta">
+                                <span>2022</span>
+                                <span>Action, Drama</span>
+                                <span>130 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/giXco2jaZ_4"><i class="fas fa-shopping-cart"></i> Buy Now - $12.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/wxN1T1uxQ2g">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$8.99</div>
+                            <img src="iloveimg-compressed/everything.jpg" alt="Everything Everywhere All at Once">
+                            <div class="title-container">
+                                <h3>Everything Everywhere All at Once</h3>
+                                <div class="rating">⭐ 9.2</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Everything Everywhere All at Once</h3>
+                            <p>An aging Chinese immigrant is swept up in an insane adventure, where she alone can save the world by exploring other universes connecting with the lives she could have led.</p>
+                            <div class="meta">
+                                <span>2022</span>
+                                <span>Action, Adventure</span>
+                                <span>139 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/wyiZWYMilgk"><i class="fas fa-shopping-cart"></i> Buy Now - $8.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/pBk4NYhWNMM">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$11.99</div>
+                            <img src="iloveimg-compressed/Barbie.webp" alt="Barbie">
+                            <div class="title-container">
+                                <h3>Barbie</h3>
+                                <div class="rating">⭐ 9.1</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Barbie</h3>
+                            <p>Barbie and Ken are having the time of their lives in the colorful and seemingly perfect world of Barbie Land. However, when they get a chance to go to the real world, they soon discover the joys and perils of living among humans.</p>
+                            <div class="meta">
+                                <span>2023</span>
+                                <span>Adventure, Comedy</span>
+                                <span>114 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/pBk4NYhWNMM"><i class="fas fa-shopping-cart"></i> Buy Now - $11.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/nLvFIeD5wAw">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$10.99</div>
+                            <img src="iloveimg-compressed/GATG vol3.jpeg" alt="Guardians of the Galaxy Vol. 3">
+                            <div class="title-container">
+                                <h3>Guardians of the Galaxy Vol. 3</h3>
+                                <div class="rating">⭐ 9.0</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Guardians of the Galaxy Vol. 3</h3>
+                            <p>Still reeling from the loss of Gamora, Peter Quill rallies his team to defend the universe and one of their own - a mission that could mean the end of the Guardians if not successful.</p>
+                            <div class="meta">
+                                <span>2023</span>
+                                <span>Action, Adventure</span>
+                                <span>150 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/nLvFIeD5wAw"><i class="fas fa-shopping-cart"></i> Buy Now - $10.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/X2m-08cOAbc">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="price-badge">$7.99</div>
+                            <img src="iloveimg-compressed/blood-shot.jpg" alt="Bloodshot">
+                            <div class="title-container">
+                                <h3>Bloodshot</h3>
+                                <div class="rating">⭐ 8.9</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Bloodshot</h3>
+                            <p>Ray Garrison, a slain soldier, is re-animated with superpowers by a corporation interested in using him as a weapon.</p>
+                            <div class="meta">
+                                <span>2020</span>
+                                <span>Action, Sci-Fi</span>
+                                <span>109 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/X2m-08cOAbc"><i class="fas fa-shopping-cart"></i> Buy Now - $7.99</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Top Rated Series -->
+    <section class="content-section" id="series">
+        <h2>Top Rated Series</h2>
+        <div class="slider-container">
+            <div class="slider-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+            <div class="content-slider">
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/XQVoom_Vlbk">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/stranger-thing.jpg" alt="Stranger Things">
+                            <div class="title-container">
+                                <h3>Stranger Things</h3>
+                                <div class="rating">⭐ 9.3</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Stranger Things</h3>
+                            <p>When a young boy disappears, his mother, a police chief and his friends must confront terrifying supernatural forces in order to get him back.</p>
+                            <div class="meta">
+                                <span>2016-Present</span>
+                                <span>Drama, Horror</span>
+                                <span>4 Seasons</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/XQVoom_Vlbk"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/4hZi5QaMBFc">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/mandalorian.jpg" alt="The Mandalorian">
+                            <div class="title-container">
+                                <h3>The Mandalorian</h3>
+                                <div class="rating">⭐ 9.2</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>The Mandalorian</h3>
+                            <p>The travels of a lone bounty hunter in the outer reaches of the galaxy, far from the authority of the New Republic.</p>
+                            <div class="meta">
+                                <span>2019-Present</span>
+                                <span>Action, Adventure</span>
+                                <span>3 Seasons</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/4hZi5QaMBFc"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/3bA8HTZhzlc">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/the-falcon.webp" alt="The Falcon and the Winter Soldier">
+                            <div class="title-container">
+                                <h3>The Falcon and the Winter Soldier</h3>
+                                <div class="rating">⭐ 9.1</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>The Falcon and the Winter Soldier</h3>
+                            <p>Following the events of 'Avengers: Endgame,' Sam Wilson and Bucky Barnes team up in a global adventure that tests their abilities and their patience.</p>
+                            <div class="meta">
+                                <span>2021</span>
+                                <span>Action, Adventure</span>
+                                <span>1 Season</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/3bA8HTZhzlc"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/4A9H4uiaFsA">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/wanda.webp" alt="WandaVision">
+                            <div class="title-container">
+                                <h3>WandaVision</h3>
+                                <div class="rating">⭐ 9.0</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>WandaVision</h3>
+                            <p>Wanda Maximoff and Vision—two super-powered beings living idealized suburban lives—begin to suspect that everything is not as it seems.</p>
+                            <div class="meta">
+                                <span>2021</span>
+                                <span>Comedy, Drama</span>
+                                <span>1 Season</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/4A9H4uiaFsA"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/vORhF0R9ZwE">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/supergirl.jpg" alt="Supergirl">
+                            <div class="title-container">
+                                <h3>Supergirl</h3>
+                                <div class="rating">⭐ 8.9</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Supergirl</h3>
+                            <p>The adventures of Superman's cousin in her own superhero career.</p>
+                            <div class="meta">
+                                <span>2015-2021</span>
+                                <span>Action, Adventure</span>
+                                <span>6 Seasons</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/vORhF0R9ZwE"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/yAYUSzfYWig">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/star-trek.jpg" alt="Star Trek: Discovery">
+                            <div class="title-container">
+                                <h3>Star Trek: Discovery</h3>
+                                <div class="rating">⭐ 8.8</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Star Trek: Discovery</h3>
+                            <p>Ten years before Kirk, Spock, and the Enterprise, the USS Discovery discovers new worlds and lifeforms as one Starfleet officer learns to understand all things alien.</p>
+                            <div class="meta">
+                                <span>2017-2024</span>
+                                <span>Sci-Fi, Action</span>
+                                <span>5 Seasons</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/yAYUSzfYWig"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Top Rated Cartoons -->
+    <section class="content-section" id="cartoons">
+        <h2>Top Rated Cartoons</h2>
+        <div class="slider-container">
+            <div class="slider-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+            <div class="content-slider">
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/XdKzUbAiswE">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/coco.jpg" alt="Coco">
+                            <div class="title-container">
+                                <h3>Coco</h3>
+                                <div class="rating">⭐ 9.0</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Coco</h3>
+                            <p>Aspiring musician Miguel, confronted with his family's ancestral ban on music, enters the Land of the Dead to find his great-great-grandfather, a legendary singer.</p>
+                            <div class="meta">
+                                <span>2017</span>
+                                <span>Animation, Adventure</span>
+                                <span>105 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/XdKzUbAiswE"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/XQXdMwRVM7s">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/spiderinto.jpg" alt="Spider-Man: Into the Spider-Verse">
+                            <div class="title-container">
+                                <h3>Spider-Man: Into the Spider-Verse</h3>
+                                <div class="rating">⭐ 8.9</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Spider-Man: Into the Spider-Verse</h3>
+                            <p>Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.</p>
+                            <div class="meta">
+                                <span>2018</span>
+                                <span>Animation, Action</span>
+                                <span>117 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/XQXdMwRVM7s"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://youtu.be/wyiZWYMilgk?si=KVO5UOuPxi6ndo6S">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/demon-slayer.jpg" alt="Demon Slayer">
+                            <div class="title-container">
+                                <h3>Demon Slayer</h3>
+                                <div class="rating">⭐ 8.8</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Demon Slayer</h3>
+                            <p>A family is attacked by demons and only two members survive - Tanjiro and his sister Nezuko, who is turning into a demon slowly. Tanjiro sets out to become a demon slayer to avenge his family and cure his sister.</p>
+                            <div class="meta">
+                                <span>2019-Present</span>
+                                <span>Animation, Action</span>
+                                <span>4 Seasons</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/Fnm-ZNhfNFQ"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/nrZxwPwmgrw">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/your-name.jpg" alt="Your Name">
+                            <div class="title-container">
+                                <h3>Your Name</h3>
+                                <div class="rating">⭐ 8.7</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Your Name</h3>
+                            <p>Two strangers find themselves linked in a bizarre way. When a connection forms, will distance be the only thing to keep them apart?</p>
+                            <div class="meta">
+                                <span>2016</span>
+                                <span>Animation, Drama</span>
+                                <span>106 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/nrZxwPwmgrw"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/gKWOglBbL0E">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/weathering.jpg" alt="Weathering with You">
+                            <div class="title-container">
+                                <h3>Weathering with You</h3>
+                                <div class="rating">⭐ 8.6</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Weathering with You</h3>
+                            <p>A high-school boy who has run away to Tokyo befriends a girl who appears to be able to manipulate the weather.</p>
+                            <div class="meta">
+                                <span>2019</span>
+                                <span>Animation, Drama</span>
+                                <span>112 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/gKWOglBbL0E"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/hPrQOHKWqHs">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="iloveimg-compressed/over-the-moon.jpg" alt="Over the Moon">
+                            <div class="title-container">
+                                <h3>Over the Moon</h3>
+                                <div class="rating">⭐ 8.5</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Over the Moon</h3>
+                            <p>A girl builds a rocket to travel to the moon in hopes of meeting the legendary Moon Goddess.</p>
+                            <div class="meta">
+                                <span>2020</span>
+                                <span>Animation, Adventure</span>
+                                <span>95 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/hPrQOHKWqHs"><i class="fas fa-shopping-cart"></i> Buy Now - $9.99</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Limited Time Movies -->
+    <section class="content-section" id="limited-time">
+        <h2>Limited Time Movies</h2>
+        <div class="slider-container">
+            <div class="slider-arrow arrow-left"><i class="fas fa-chevron-left"></i></div>
+            <div class="content-slider">
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/HBnHjI-Bxq4">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="expiring-badge">Expires This Week!</div>
+                            <img src="iloveimg-compressed/transformer.jpg" alt="Transformers">
+                            <div class="title-container">
+                                <h3>Transformers</h3>
+                                <div class="rating">⭐ 9.8</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Transformers</h3>
+                            <p>An ancient struggle between two Cybertronian races, the heroic Autobots and the evil Decepticons, comes to Earth, with a clue to the ultimate power held by a teenager.</p>
+                            <div class="meta">
+                                <span>2007</span>
+                                <span>Action, Sci-Fi</span>
+                                <span>144 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/HBnHjI-Bxq4"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/YaLDLHlMvcI">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="expiring-badge">Expires This Week!</div>
+                            <img src="iloveimg-compressed/Avengers .jpeg" alt="The Avengers">
+                            <div class="title-container">
+                                <h3>The Avengers</h3>
+                                <div class="rating">⭐ 9.7</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>The Avengers</h3>
+                            <p>Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.</p>
+                            <div class="meta">
+                                <span>2012</span>
+                                <span>Action, Adventure</span>
+                                <span>143 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/YaLDLHlMvcI"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/V_dMUd_w7Ag">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="expiring-badge">Expires This Week!</div>
+                            <img src="iloveimg-compressed/captain-marvel.png" alt="Captain Marvel">
+                            <div class="title-container">
+                                <h3>Captain Marvel</h3>
+                                <div class="rating">⭐ 9.6</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Captain Marvel</h3>
+                            <p>Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.</p>
+                            <div class="meta">
+                                <span>2019</span>
+                                <span>Action, Adventure</span>
+                                <span>123 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/V_dMUd_w7Ag"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/vKQi3bBA1y8">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="timer">7 days left</div>
+                            <img src="iloveimg-compressed/resident-evil.jpg" alt="Resident Evil">
+                            <div class="title-container">
+                                <h3>Resident Evil</h3>
+                                <div class="rating">⭐ 9.5</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Resident Evil</h3>
+                            <p>A special military unit fights a powerful, out-of-control supercomputer and hundreds of scientists who have mutated into flesh-eating creatures after a laboratory accident.</p>
+                            <div class="meta">
+                                <span>2002</span>
+                                <span>Action, Horror</span>
+                                <span>100 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/vKQi3bBA1y8"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/SHT6LPu0t3Q">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="timer">10 days left</div>
+                            <img src="iloveimg-compressed/insidious.jpg" alt="Insidious">
+                            <div class="title-container">
+                                <h3>Insidious</h3>
+                                <div class="rating">⭐ 9.4</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Insidious</h3>
+                            <p>A family looks to prevent evil spirits from trapping their comatose child in a realm called The Further.</p>
+                            <div class="meta">
+                                <span>2010</span>
+                                <span>Horror, Mystery</span>
+                                <span>103 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/SHT6LPu0t3Q"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card" data-trailer="https://www.youtube.com/embed/nmE3QaGetn8">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="timer">15 days left</div>
+                            <img src="iloveimg-compressed/hunter-killer.jpg" alt="Hunter Killer">
+                            <div class="title-container">
+                                <h3>Hunter Killer</h3>
+                                <div class="rating">⭐ 9.3</div>
+                            </div>
+                            <div class="flip-hint">Click for details</div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Hunter Killer</h3>
+                            <p>An untested American submarine captain teams with U.S. Navy SEALs to rescue the Russian president, who has been kidnapped by a rogue general.</p>
+                            <div class="meta">
+                                <span>2018</span>
+                                <span>Action, Thriller</span>
+                                <span>122 min</span>
+                            </div>
+                            <button class="card-btn watch-card-trailer" data-trailer="https://www.youtube.com/embed/nmE3QaGetn8"><i class="fas fa-shopping-cart"></i> Buy Now - $14.99</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-arrow arrow-right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </section>
+
+    <!-- Trailer Modal -->
+    <div class="trailer-modal" id="trailer-modal">
+        <div class="trailer-content">
+            <span class="close-trailer">&times;</span>
+            <iframe id="trailer-iframe" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <h2>Choose Your Plan</h2>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>Basic</h3>
+                <div class="price">$9.99<span>/month</span></div>
+                <ul>
+                    <li>HD Available</li>
+                    <li>Watch on 1 Device</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Cancel Anytime</li>
+                </ul>
+                <button class="pricing-btn" onclick="window.location.href='subscribe.html?plan=1'">Choose Plan</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Premium</h3>
+                <div class="price">$14.99<span>/month</span></div>
+                <ul>
+                    <li>Ultra HD Available</li>
+                    <li>Watch on 2 Devices</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Cancel Anytime</li>
+                </ul>
+                <button class="pricing-btn" onclick="window.location.href='subscribe.html?plan=2'">Choose Plan</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Ultimate</h3>
+                <div class="price">$19.99<span>/month</span></div>
+                <ul>
+                    <li>4K + HDR Available</li>
+                    <li>Watch on 4 Devices</li>
+                    <li>Unlimited Movies & TV Shows</li>
+                    <li>Cancel Anytime</li>
+                </ul>
+                <button class="pricing-btn" onclick="window.location.href='subscribe.html?plan=3'">Choose Plan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-content">
+            <div class="payment-header">
+                <h2>Complete Your Purchase</h2>
+                <button class="close-payment" id="closePaymentBtn">&times;</button>
+            </div>
+            <div class="payment-body">
+                <div class="movie-details">
+                    <img src="" alt="Movie Thumbnail" class="movie-thumbnail" id="movieThumbnail">
+                    <div class="movie-info">
+                        <h3 id="movieTitle">Movie Title</h3>
+                        <div class="movie-price">$<span id="moviePrice">0.00</span></div>
+                    </div>
+                </div>
+                <form class="payment-form" id="paymentForm">
+                    <div class="form-group">
+                        <label for="cardName">Name on Card</label>
+                        <input type="text" id="cardName" placeholder="e.g. John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" maxlength="19" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" placeholder="XXX" maxlength="3" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-payment-btn">Confirm Payment</button>
+                    <div class="secure-badge">
+                        <i class="fas fa-lock"></i> Secure payment processing
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

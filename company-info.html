@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>Company Info - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        .page-content {
+            padding: 80px 5%;
+            min-height: calc(100vh - 400px);
+        }
+        
+        .page-title {
+            color: #e50914;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        
+        .info-section {
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .info-section h3 {
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .info-section p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background-color: rgba(40, 40, 40, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #e50914;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e50914;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #e50914;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .milestone {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .milestone::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: #e50914;
+            border: 4px solid #111111;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #2f2f2f;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #2f2f2f;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #2f2f2f;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #2f2f2f transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .milestone-content {
+            padding: 20px 30px;
+            background-color: #2f2f2f;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        .milestone-year {
+            color: #e50914;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+        }
+        
+        .milestone-title {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .milestone-desc {
+            color: #cccccc;
+            line-height: 1.4;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .milestone {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .milestone::before {
+                left: 60px;
+                border: medium solid #2f2f2f;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #2f2f2f transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn" onclick="window.location.href='login.html'">Login</button>
+            <button class="signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <h1 class="page-title">Company Information</h1>
+        
+        <div class="info-section">
+            <h3>About Moodie</h3>
+            <p>Moodie is a global streaming entertainment service offering a wide variety of award-winning TV series, movies, anime, documentaries, and more across a wide variety of genres and languages. Moodie members can watch as much as they want, anytime, anywhere, on any internet-connected screen.</p>
+            <p>Headquartered in Los Angeles, California, Moodie has offices in over 20 countries worldwide and serves millions of subscribers across 190+ countries.</p>
+        </div>
+        
+        <div class="info-section">
+            <h3>Key Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">25M+</div>
+                    <div class="stat-label">Global Subscribers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Movies & Shows</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">190+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,500+</div>
+                    <div class="stat-label">Employees Worldwide</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>Company Milestones</h3>
+            <div class="timeline">
+                <div class="milestone left">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2020</div>
+                        <div class="milestone-title">Moodie Founded</div>
+                        <div class="milestone-desc">Moodie was established with initial funding of $50 million to revolutionize digital streaming.</div>
+                    </div>
+                </div>
+                <div class="milestone right">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2021</div>
+                        <div class="milestone-title">International Expansion</div>
+                        <div class="milestone-desc">Rapid international expansion brought Moodie to audiences across Europe, Asia, and South America.</div>
+                    </div>
+                </div>
+                <div class="milestone left">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2022</div>
+                        <div class="milestone-title">10 Million Subscribers</div>
+                        <div class="milestone-desc">Moodie achieved the milestone of 10 million paid subscribers globally.</div>
+                    </div>
+                </div>
+                <div class="milestone right">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2023</div>
+                        <div class="milestone-title">First Original Series</div>
+                        <div class="milestone-desc">The launch of our first original series "Beyond the Horizon," which won multiple industry awards.</div>
+                    </div>
+                </div>
+                <div class="milestone left">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2024</div>
+                        <div class="milestone-title">Mobile App Launch</div>
+                        <div class="milestone-desc">Released our mobile app with offline viewing capabilities, expanding our service accessibility.</div>
+                    </div>
+                </div>
+                <div class="milestone right">
+                    <div class="milestone-content">
+                        <div class="milestone-year">2024</div>
+                        <div class="milestone-title">25 Million Subscribers</div>
+                        <div class="milestone-desc">Reached 25 million subscribers and expanded to over 190 countries worldwide.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3>Leadership Team</h3>
+            <p><strong>David Chen</strong> - Chief Executive Officer</p>
+            <p><strong>Sarah Johnson</strong> - Chief Technology Officer</p>
+            <p><strong>Miguel Rodriguez</strong> - Chief Content Officer</p>
+            <p><strong>Aisha Patel</strong> - Chief Marketing Officer</p>
+            <p><strong>Robert Kim</strong> - Chief Financial Officer</p>
+            <p><strong>Lisa Wong</strong> - VP of International Expansion</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

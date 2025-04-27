@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="moodieApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="./images/movie logo.png">
+    <title>Login - Moodie</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .validation-error {
+            color: #e50914;
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .ng-touched.ng-invalid {
+            border: 1px solid #e50914 !important;
+        }
+        
+        .ng-touched.ng-valid {
+            border: 1px solid #28a745 !important;
+        }
+        
+        .validation-icon {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+        }
+        
+        .validation-icon.valid {
+            color: #28a745;
+        }
+        
+        .validation-icon.invalid {
+            color: #e50914;
+        }
+        
+        .password-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body ng-controller="LoginController">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <i class='bx bx-movie-play bx-tada main-color'></i>M<span class="main-color">oo</span>die
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#movies">Movies</a>
+            <a href="index.html#series">Series</a>
+            <a href="index.html#cartoons">Cartoons</a>
+            <a href="index.html#pricing">Pricing</a>
+        </div>
+    </nav>
+
+    <!-- Login Form -->
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Login to Moodie</h2>
+            <form name="loginForm" ng-submit="submitForm()" novalidate>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div style="position: relative;">
+                        <input type="email" id="email" name="email" ng-model="user.email" required ng-pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
+                        <i class="fas fa-check-circle validation-icon valid" ng-show="loginForm.email.$valid && loginForm.email.$touched"></i>
+                        <i class="fas fa-exclamation-circle validation-icon invalid" ng-show="loginForm.email.$invalid && loginForm.email.$touched"></i>
+                    </div>
+                    <div class="validation-error" ng-show="loginForm.email.$invalid && loginForm.email.$touched">
+                        <span ng-show="loginForm.email.$error.required">Email is required</span>
+                        <span ng-show="loginForm.email.$error.pattern">Please enter a valid email address</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" ng-model="user.password" required ng-minlength="8">
+                        <i class="fas fa-eye toggle-password" ng-click="togglePasswordVisibility()"></i>
+                        <i class="fas fa-check-circle validation-icon valid" ng-show="loginForm.password.$valid && loginForm.password.$touched"></i>
+                        <i class="fas fa-exclamation-circle validation-icon invalid" ng-show="loginForm.password.$invalid && loginForm.password.$touched"></i>
+                    </div>
+                    <div class="validation-error" ng-show="loginForm.password.$invalid && loginForm.password.$touched">
+                        <span ng-show="loginForm.password.$error.required">Password is required</span>
+                        <span ng-show="loginForm.password.$error.minlength">Password must be at least 8 characters</span>
+                    </div>
+                </div>
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="remember" name="remember" ng-model="user.remember">
+                    <label for="remember">Remember me</label>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="auth-btn" ng-disabled="loginForm.$invalid">Login</button>
+                </div>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About</h4>
+                <ul>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="company-info.html">Company Info</a></li>
+                    <li><a href="contact-us.html">Contact Us</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="terms-of-use.html">Terms of Use</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Moodie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var app = angular.module('moodieApp', []);
+        
+        app.controller('LoginController', function($scope) {
+            $scope.user = {
+                email: '',
+                password: '',
+                remember: false
+            };
+            
+            $scope.togglePasswordVisibility = function() {
+                var passwordInput = document.getElementById('password');
+                var icon = document.querySelector('.toggle-password');
+                
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.classList.remove('fa-eye');
+                    icon.classList.add('fa-eye-slash');
+                } else {
+                    passwordInput.type = 'password';
+                    icon.classList.remove('fa-eye-slash');
+                    icon.classList.add('fa-eye');
+                }
+            };
+            
+            $scope.submitForm = function() {
+                if ($scope.loginForm.$valid) {
+                    // Use fetch API to send login request
+                    fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify($scope.user)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error('Login failed');
+                    })
+                    .then(data => {
+                        if (data.token) {
+                            localStorage.setItem('authToken', data.token);
+                            window.location.href = 'dashboard.html';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Login failed. Please check your credentials and try again.');
+                    });
+                }
+            };
+        });
+    </script>
+</body>
+</html> 
